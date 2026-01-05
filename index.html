@@ -706,12 +706,14 @@
         .post-body {
             padding: 25px;
             white-space: pre-line;
+            line-height: 1.6;
         }
 
         .post-actions {
             padding: 15px 25px 25px;
             display: flex;
             gap: 15px;
+            align-items: center;
         }
 
         .post-like {
@@ -724,11 +726,157 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            padding: 5px 10px;
+            border-radius: 5px;
         }
 
-        .post-like:hover,
+        .post-like:hover {
+            background-color: rgba(255, 0, 102, 0.1);
+        }
+
         .post-like.liked {
             color: var(--primary);
+        }
+
+        /* ===== COMMENTS SECTION STYLES ===== */
+        .comments-container {
+            border-top: 1px solid #eee;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .comments-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .comments-header h4 {
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .close-comments {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray);
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-comments:hover {
+            color: var(--primary);
+        }
+
+        .comments-list {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding-right: 10px;
+        }
+
+        .comment-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--partner);
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .comment-author {
+            color: var(--partner);
+            font-weight: 600;
+        }
+
+        .comment-date {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .comment-text {
+            color: var(--dark);
+            line-height: 1.5;
+            white-space: pre-line;
+        }
+
+        .no-comments {
+            text-align: center;
+            color: var(--gray);
+            font-style: italic;
+            padding: 20px;
+        }
+
+        .comment-form {
+            margin-top: 20px;
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .comment-input:focus {
+            border-color: var(--partner);
+            outline: none;
+        }
+
+        .btn-text {
+            background: none;
+            border: none;
+            color: var(--partner);
+            cursor: pointer;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            margin-left: 15px;
+        }
+
+        .btn-text:hover {
+            background-color: rgba(138, 43, 226, 0.1);
+        }
+
+        /* Scrollbar styling for comments */
+        .comments-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .comments-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .comments-list::-webkit-scrollbar-thumb {
+            background: var(--partner);
+            border-radius: 10px;
+        }
+
+        .comments-list::-webkit-scrollbar-thumb:hover {
+            background: #7a1fd1;
         }
 
         /* ===== GALLERY SECTION - UPDATED FOR MIXED ORIENTATIONS ===== */
@@ -1049,6 +1197,16 @@
                 width: 100px;
                 height: 100px;
             }
+            
+            .post-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .btn-text {
+                margin-left: 0;
+            }
         }
 
         /* ===== UTILITY CLASSES ===== */
@@ -1201,25 +1359,25 @@
                 
                 <p style="margin-bottom: 30px; font-size: 1.1rem; line-height: 1.6;">My collaboration with Beauty for Ashes focuses specifically on <strong>youth mental health</strong>. We bring their mission into schools through:</p>
                 
-                <div class="resources-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-bottom: 40px;">
-                    <div class="resource-card">
+                <div class="resources-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                    <div class="resource-card" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
                         <div class="resource-content">
-                            <h4>School Workshops</h4>
-                            <p>Mental health education sessions in secondary schools</p>
+                            <h4 style="color: var(--partner); margin-bottom: 10px;">School Workshops</h4>
+                            <p style="color: var(--gray);">Mental health education sessions in secondary schools</p>
                         </div>
                     </div>
                     
-                    <div class="resource-card">
+                    <div class="resource-card" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
                         <div class="resource-content">
-                            <h4>Peer Support</h4>
-                            <p>Training student mental health advocates</p>
+                            <h4 style="color: var(--partner); margin-bottom: 10px;">Peer Support</h4>
+                            <p style="color: var(--gray);">Training student mental health advocates</p>
                         </div>
                     </div>
                     
-                    <div class="resource-card">
+                    <div class="resource-card" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
                         <div class="resource-content">
-                            <h4>Creative Expression</h4>
-                            <p>Writing workshops for emotional healing</p>
+                            <h4 style="color: var(--partner); margin-bottom: 10px;">Creative Expression</h4>
+                            <p style="color: var(--gray);">Writing workshops for emotional healing</p>
                         </div>
                     </div>
                 </div>
@@ -1303,8 +1461,11 @@
                             When by life's fires we've been frayed.
                         </div>
                         <div class="post-actions">
-                            <button class="post-like" data-id="1">
+                            <button class="post-like" data-id="post-1">
                                 <i class="far fa-heart"></i> <span class="like-count">24</span> Likes
+                            </button>
+                            <button class="btn-text toggle-comments" data-post-id="post-1">
+                                Show Comments
                             </button>
                         </div>
                     </div>
@@ -1328,8 +1489,11 @@
                             But in the heart's determined treasure.
                         </div>
                         <div class="post-actions">
-                            <button class="post-like" data-id="2">
+                            <button class="post-like" data-id="post-2">
                                 <i class="far fa-heart"></i> <span class="like-count">18</span> Likes
+                            </button>
+                            <button class="btn-text toggle-comments" data-post-id="post-2">
+                                Show Comments
                             </button>
                         </div>
                     </div>
@@ -1353,8 +1517,11 @@
                             I'll always give my best to you.
                         </div>
                         <div class="post-actions">
-                            <button class="post-like" data-id="3">
+                            <button class="post-like" data-id="post-3">
                                 <i class="far fa-heart"></i> <span class="like-count">32</span> Likes
+                            </button>
+                            <button class="btn-text toggle-comments" data-post-id="post-3">
+                                Show Comments
                             </button>
                         </div>
                     </div>
@@ -1381,8 +1548,11 @@
                             This is the power of creative expression - it doesn't erase the pain, but it gives us a way to carry it forward into something beautiful.
                         </div>
                         <div class="post-actions">
-                            <button class="post-like" data-id="4">
+                            <button class="post-like" data-id="post-4">
                                 <i class="far fa-heart"></i> <span class="like-count">45</span> Likes
+                            </button>
+                            <button class="btn-text toggle-comments" data-post-id="post-4">
+                                Show Comments
                             </button>
                         </div>
                     </div>
@@ -1404,8 +1574,11 @@
                             It didn't fix everything. Our home is still gone. But writing gave me a place to put the pain so it wasn't choking me anymore. It made space for hope to return, one word at a time.
                         </div>
                         <div class="post-actions">
-                            <button class="post-like" data-id="5">
+                            <button class="post-like" data-id="post-5">
                                 <i class="far fa-heart"></i> <span class="like-count">29</span> Likes
+                            </button>
+                            <button class="btn-text toggle-comments" data-post-id="post-5">
+                                Show Comments
                             </button>
                         </div>
                     </div>
@@ -1477,8 +1650,11 @@
                             **Week 10:** I'm writing not just to remember him, but to honor the love we shared. The grief is still here, but there's space around it now. Space for breath. For other memories. For hope.
                         </div>
                         <div class="post-actions">
-                            <button class="post-like" data-id="6">
+                            <button class="post-like" data-id="post-6">
                                 <i class="far fa-heart"></i> <span class="like-count">37</span> Likes
+                            </button>
+                            <button class="btn-text toggle-comments" data-post-id="post-6">
+                                Show Comments
                             </button>
                         </div>
                     </div>
@@ -1603,243 +1779,760 @@
     </footer>
 
     <script>
-        // ===== NAVBAR FUNCTIONALITY =====
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = mobileToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+        // ===== ENHANCED WRITING SYSTEM WITH SHARED LIKES & COMMENTS =====
+        // This system uses localStorage to simulate shared data between users
+        // In production, replace with actual backend API calls
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all sections
+            initializeNavigation();
+            initializeWritingSection();
+            initializeLikesAndComments();
+            initializeAnimations();
+            initializeDefaultPosts();
         });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileToggle.querySelector('i').classList.remove('fa-times');
-                mobileToggle.querySelector('i').classList.add('fa-bars');
-                
-                // Update active link
-                document.querySelectorAll('.nav-links a').forEach(item => {
-                    item.classList.remove('active');
+
+        function initializeNavigation() {
+            // ===== NAVBAR FUNCTIONALITY =====
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
                 });
-                link.classList.add('active');
-            });
-        });
-        
-        // ===== WRITING TABS FUNCTIONALITY =====
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-        
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Get tab id
-                const tabId = button.getAttribute('data-tab');
                 
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-                
-                // Add active class to clicked button and corresponding content
-                button.classList.add('active');
-                document.getElementById(tabId).classList.add('active');
+                // Close mobile menu when clicking a link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        mobileToggle.querySelector('i').classList.remove('fa-times');
+                        mobileToggle.querySelector('i').classList.add('fa-bars');
+                        
+                        // Update active link
+                        document.querySelectorAll('.nav-links a').forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        link.classList.add('active');
+                    });
+                });
+            }
+            
+            // ===== SMOOTH SCROLLING =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
-        });
-        
-        // ===== SUBMIT WRITING FORM =====
-        const writingForm = document.getElementById('writingForm');
-        const submissionSuccess = document.getElementById('submissionSuccess');
-        
-        writingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
             
-            // Get form values
-            const authorName = document.getElementById('authorName').value;
-            const writingTitle = document.getElementById('writingTitle').value;
-            const writingType = document.getElementById('writingType').value;
-            const writingContent = document.getElementById('writingContent').value;
+            // ===== UPDATE ACTIVE NAV LINK ON SCROLL =====
+            window.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('.nav-links a');
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
             
-            // Create new post element
-            const newPost = document.createElement('div');
-            newPost.className = 'post-card fade-in';
+            // ===== NAVBAR SCROLL EFFECT =====
+            window.addEventListener('scroll', () => {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.padding = '10px 0';
+                    navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    navbar.style.padding = '15px 0';
+                    navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                }
+            });
+        }
+
+        function initializeWritingSection() {
+            // ===== WRITING TABS FUNCTIONALITY =====
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
             
-            // Determine which container to add to based on writing type
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Get tab id
+                    const tabId = button.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                    
+                    // Load comments for the active tab if applicable
+                    if (tabId === 'read-poems' || tabId === 'read-stories' || tabId === 'healing-journals') {
+                        loadCommentsForActivePosts();
+                    }
+                });
+            });
+            
+            // ===== SUBMIT WRITING FORM =====
+            const writingForm = document.getElementById('writingForm');
+            const submissionSuccess = document.getElementById('submissionSuccess');
+            
+            if (writingForm) {
+                writingForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const authorName = document.getElementById('authorName').value.trim();
+                    const writingTitle = document.getElementById('writingTitle').value.trim();
+                    const writingType = document.getElementById('writingType').value;
+                    const writingContent = document.getElementById('writingContent').value.trim();
+                    
+                    // Validate form
+                    if (!authorName || !writingTitle || !writingType || !writingContent) {
+                        alert('Please fill in all fields');
+                        return;
+                    }
+                    
+                    // Create unique ID for the new post
+                    const postId = 'post-' + Date.now();
+                    
+                    // Create new post object
+                    const newPost = {
+                        id: postId,
+                        title: writingTitle,
+                        author: authorName,
+                        content: writingContent,
+                        type: writingType,
+                        date: new Date().toISOString(),
+                        likes: 0,
+                        likedBy: [],
+                        comments: []
+                    };
+                    
+                    // Save to localStorage
+                    savePostToStorage(newPost);
+                    
+                    // Add to UI
+                    addPostToUI(newPost);
+                    
+                    // Reset form
+                    writingForm.reset();
+                    
+                    // Show success message
+                    if (submissionSuccess) {
+                        submissionSuccess.classList.remove('hidden');
+                        
+                        // Auto-hide success message after 5 seconds
+                        setTimeout(() => {
+                            submissionSuccess.classList.add('hidden');
+                        }, 5000);
+                    }
+                    
+                    // Switch to appropriate tab to show new post
+                    if (writingType === 'poem') {
+                        document.querySelector('[data-tab="read-poems"]').click();
+                    } else if (writingType === 'story') {
+                        document.querySelector('[data-tab="read-stories"]').click();
+                    } else if (writingType === 'healing-journal') {
+                        document.querySelector('[data-tab="healing-journals"]').click();
+                    }
+                });
+            }
+        }
+
+        function initializeLikesAndComments() {
+            // ===== LIKE BUTTON FUNCTIONALITY WITH SHARED STORAGE =====
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.post-like')) {
+                    handleLikeButtonClick(e.target.closest('.post-like'));
+                }
+                
+                // Comment form submission
+                if (e.target.closest('.comment-submit')) {
+                    e.preventDefault();
+                    handleCommentSubmit(e.target.closest('.comment-submit'));
+                }
+                
+                // Toggle comments section
+                if (e.target.closest('.toggle-comments')) {
+                    toggleCommentsSection(e.target.closest('.toggle-comments'));
+                }
+                
+                // Close comments
+                if (e.target.closest('.close-comments')) {
+                    closeCommentsSection(e.target.closest('.close-comments'));
+                }
+            });
+            
+            // Load existing likes and comments
+            updateAllLikeCounts();
+        }
+
+        function initializeAnimations() {
+            // ===== BIOGRAPHY SECTION ANIMATIONS =====
+            function animateOnScroll() {
+                const bioCards = document.querySelectorAll('.bio-card');
+                const statItems = document.querySelectorAll('.stat-item');
+                
+                bioCards.forEach(card => {
+                    const cardPosition = card.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (cardPosition < screenPosition) {
+                        card.classList.add('animate');
+                    }
+                });
+                
+                statItems.forEach(item => {
+                    const itemPosition = item.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (itemPosition < screenPosition) {
+                        item.classList.add('animate');
+                    }
+                });
+            }
+            
+            // Initial check
+            window.addEventListener('load', animateOnScroll);
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // ===== HERO BUTTON ANIMATIONS =====
+            const heroButtons = document.querySelectorAll('.hero .btn');
+            heroButtons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                    button.style.animation = 'pulse 0.5s ease';
+                });
+                
+                button.addEventListener('mouseleave', () => {
+                    setTimeout(() => {
+                        button.style.animation = '';
+                    }, 500);
+                });
+            });
+        }
+
+        function initializeDefaultPosts() {
+            // Check if we need to initialize default posts
+            const posts = getPostsFromStorage();
+            if (posts.length === 0) {
+                // Add default posts
+                const defaultPosts = [
+                    {
+                        id: 'post-1',
+                        title: 'Beauty From Ashes',
+                        author: 'Jascinta Nakivumbu',
+                        content: `From the ashes of my pain,
+A phoenix learns to rise again.
+Each tear that falls upon the ground,
+Becomes a seed where hope is found.
+
+The broken pieces of my soul,
+Are being gently made whole.
+For Beauty For Ashes is the trade,
+When by life's fires we've been frayed.`,
+                        type: 'poem',
+                        date: '2025-12-20T00:00:00.000Z',
+                        likes: 24,
+                        likedBy: [],
+                        comments: []
+                    },
+                    {
+                        id: 'post-2',
+                        title: 'The Strength Within',
+                        author: 'Sarah K.',
+                        content: `They said I was too quiet to lead,
+Too young to plant a mighty seed.
+But in the silence, strength was growing,
+A steady river, softly flowing.
+
+Now I stand with voice so clear,
+Banishing every doubt and fear.
+For strength is not in volume's measure,
+But in the heart's determined treasure.`,
+                        type: 'poem',
+                        date: '2025-10-18T00:00:00.000Z',
+                        likes: 18,
+                        likedBy: [],
+                        comments: []
+                    },
+                    {
+                        id: 'post-3',
+                        title: 'Uganda, My Home',
+                        author: 'Michael T.',
+                        content: `Land of rolling hills and skies so blue,
+Where morning greets with gentle dew.
+Your beauty shines in every face,
+A nation filled with warmth and grace.
+
+From Source of Nile to Rwenzori peaks,
+Your strength in every soul speaks.
+Uganda, my home, forever true,
+I'll always give my best to you.`,
+                        type: 'poem',
+                        date: '2025-12-15T00:00:00.000Z',
+                        likes: 32,
+                        likedBy: [],
+                        comments: []
+                    },
+                    {
+                        id: 'post-4',
+                        title: 'From Ashes to Beauty',
+                        author: 'Jascinta Nakivumbu',
+                        content: `The first time I visited a Beauty for Ashes workshop, I met Sarah. At 16, she had lost both parents in an accident and was struggling with depression that made it hard to even get out of bed each morning.
+
+Through our writing circle, she began to share her pain in small pieces. First just a sentence. Then a paragraph. Then a whole page.
+
+Today, Sarah leads our youth writing group and is applying to university to study psychology. She says writing gave her a voice when she felt completely silenced by grief.
+
+This is the power of creative expression - it doesn't erase the pain, but it gives us a way to carry it forward into something beautiful.`,
+                        type: 'story',
+                        date: '2026-01-02T00:00:00.000Z',
+                        likes: 45,
+                        likedBy: [],
+                        comments: []
+                    },
+                    {
+                        id: 'post-5',
+                        title: 'The Day Hope Returned',
+                        author: 'David M.',
+                        content: `After the landslide that destroyed our home and took three neighbors, I thought I'd never smile again. The grief was a physical weight that made every breath feel heavy.
+
+When the Beauty for Ashes team came to our camp, they didn't just bring food and blankets. They brought journals and pens, and they sat with us and listened.
+
+At first, I just drew angry scribbles. Then I wrote about the anger. Then about the loss. Then about the memories I wanted to keep.
+
+It didn't fix everything. Our home is still gone. But writing gave me a place to put the pain so it wasn't choking me anymore. It made space for hope to return, one word at a time.`,
+                        type: 'story',
+                        date: '2025-11-19T00:00:00.000Z',
+                        likes: 29,
+                        likedBy: [],
+                        comments: []
+                    },
+                    {
+                        id: 'post-6',
+                        title: 'Finding Light Again',
+                        author: 'Grace L.',
+                        content: `**Week 1:** The darkness feels permanent. Every morning is a battle just to open my eyes. The grief counsellor says to write, but the words won't come. Just tears on the page.
+
+**Week 3:** Today I wrote three sentences about my brother. Not about losing him, but about his laugh. How it sounded like sunshine. My first memory that didn't hurt.
+
+**Week 6:** Shared in the Beauty for Ashes writing circle today. Everyone listened without judgement. Someone said my words about sunshine helped them remember light too. Maybe my pain can become someone else's comfort.
+
+**Week 10:** I'm writing not just to remember him, but to honor the love we shared. The grief is still here, but there's space around it now. Space for breath. For other memories. For hope.`,
+                        type: 'healing-journal',
+                        date: '2025-11-28T00:00:00.000Z',
+                        likes: 37,
+                        likedBy: [],
+                        comments: []
+                    }
+                ];
+                
+                defaultPosts.forEach(post => {
+                    savePostToStorage(post);
+                });
+                
+                // Update UI with loaded posts
+                updateAllLikeCounts();
+            }
+        }
+
+        // ===== STORAGE FUNCTIONS =====
+        function getPostsFromStorage() {
+            try {
+                const postsJSON = localStorage.getItem('writingPosts');
+                return postsJSON ? JSON.parse(postsJSON) : [];
+            } catch (error) {
+                console.error('Error reading posts from storage:', error);
+                return [];
+            }
+        }
+
+        function savePostsToStorage(posts) {
+            try {
+                localStorage.setItem('writingPosts', JSON.stringify(posts));
+            } catch (error) {
+                console.error('Error saving posts to storage:', error);
+            }
+        }
+
+        function savePostToStorage(post) {
+            const posts = getPostsFromStorage();
+            posts.unshift(post); // Add to beginning
+            savePostsToStorage(posts);
+        }
+
+        function updatePostInStorage(updatedPost) {
+            const posts = getPostsFromStorage();
+            const index = posts.findIndex(post => post.id === updatedPost.id);
+            if (index !== -1) {
+                posts[index] = updatedPost;
+                savePostsToStorage(posts);
+            }
+        }
+
+        // ===== LIKE FUNCTIONALITY =====
+        function handleLikeButtonClick(likeButton) {
+            const postId = likeButton.getAttribute('data-id');
+            const likeIcon = likeButton.querySelector('i');
+            const likeCount = likeButton.querySelector('.like-count');
+            
+            // Get posts from storage
+            const posts = getPostsFromStorage();
+            const post = posts.find(p => p.id === postId);
+            
+            if (!post) {
+                console.error('Post not found:', postId);
+                return;
+            }
+            
+            // Check if current user has already liked (using session ID)
+            const sessionId = getSessionId();
+            const userIndex = post.likedBy.indexOf(sessionId);
+            
+            if (userIndex === -1) {
+                // User hasn't liked yet - add like
+                post.likes++;
+                post.likedBy.push(sessionId);
+                likeButton.classList.add('liked');
+                likeIcon.classList.remove('far');
+                likeIcon.classList.add('fas');
+            } else {
+                // User already liked - remove like
+                post.likes--;
+                post.likedBy.splice(userIndex, 1);
+                likeButton.classList.remove('liked');
+                likeIcon.classList.remove('fas');
+                likeIcon.classList.add('far');
+            }
+            
+            // Update storage
+            updatePostInStorage(post);
+            
+            // Update UI
+            likeCount.textContent = post.likes;
+        }
+
+        function updateAllLikeCounts() {
+            const posts = getPostsFromStorage();
+            const sessionId = getSessionId();
+            
+            // Update all like buttons on page
+            document.querySelectorAll('.post-like').forEach(likeButton => {
+                const postId = likeButton.getAttribute('data-id');
+                const post = posts.find(p => p.id === postId);
+                
+                if (post) {
+                    // Update like count
+                    const likeCount = likeButton.querySelector('.like-count');
+                    likeCount.textContent = post.likes;
+                    
+                    // Update like button state
+                    const likeIcon = likeButton.querySelector('i');
+                    const isLiked = post.likedBy.includes(sessionId);
+                    
+                    if (isLiked) {
+                        likeButton.classList.add('liked');
+                        likeIcon.classList.remove('far');
+                        likeIcon.classList.add('fas');
+                    } else {
+                        likeButton.classList.remove('liked');
+                        likeIcon.classList.remove('fas');
+                        likeIcon.classList.add('far');
+                    }
+                }
+            });
+        }
+
+        // ===== COMMENT FUNCTIONALITY =====
+        function handleCommentSubmit(commentButton) {
+            const postId = commentButton.getAttribute('data-post-id');
+            const commentForm = commentButton.closest('.comment-form');
+            const commentInput = commentForm.querySelector('.comment-input');
+            const commentText = commentInput.value.trim();
+            
+            if (!commentText) {
+                alert('Please enter a comment');
+                return;
+            }
+            
+            // Create comment object
+            const comment = {
+                id: 'comment-' + Date.now(),
+                postId: postId,
+                author: 'Anonymous User', // In production, get from user authentication
+                text: commentText,
+                date: new Date().toISOString()
+            };
+            
+            // Save comment to storage
+            saveCommentToStorage(comment);
+            
+            // Add comment to UI
+            addCommentToUI(comment, postId);
+            
+            // Clear input
+            commentInput.value = '';
+            
+            // Show confirmation
+            const originalText = commentButton.textContent;
+            commentButton.textContent = '✓ Comment Added';
+            commentButton.disabled = true;
+            
+            setTimeout(() => {
+                commentButton.textContent = originalText;
+                commentButton.disabled = false;
+            }, 2000);
+        }
+
+        function saveCommentToStorage(comment) {
+            const posts = getPostsFromStorage();
+            const postIndex = posts.findIndex(p => p.id === comment.postId);
+            
+            if (postIndex !== -1) {
+                if (!posts[postIndex].comments) {
+                    posts[postIndex].comments = [];
+                }
+                posts[postIndex].comments.unshift(comment); // Add to beginning
+                savePostsToStorage(posts);
+            }
+        }
+
+        function loadCommentsForPost(postId) {
+            const posts = getPostsFromStorage();
+            const post = posts.find(p => p.id === postId);
+            return post && post.comments ? post.comments : [];
+        }
+
+        function loadCommentsForActivePosts() {
+            // Get all post cards in active tab
+            const activeTab = document.querySelector('.tab-content.active');
+            if (!activeTab) return;
+            
+            const postCards = activeTab.querySelectorAll('.post-card');
+            
+            postCards.forEach(card => {
+                const postId = card.querySelector('.post-like').getAttribute('data-id');
+                const commentsContainer = card.querySelector('.comments-container');
+                
+                if (commentsContainer) {
+                    loadCommentsIntoContainer(postId, commentsContainer);
+                }
+            });
+        }
+
+        function loadCommentsIntoContainer(postId, container) {
+            const comments = loadCommentsForPost(postId);
+            
+            // Clear existing comments
+            const commentsList = container.querySelector('.comments-list');
+            if (commentsList) {
+                commentsList.innerHTML = '';
+                
+                if (comments.length === 0) {
+                    commentsList.innerHTML = '<p class="no-comments">No comments yet. Be the first to comment!</p>';
+                    return;
+                }
+                
+                // Add each comment
+                comments.forEach(comment => {
+                    const commentElement = createCommentElement(comment);
+                    commentsList.appendChild(commentElement);
+                });
+            }
+        }
+
+        function addCommentToUI(comment, postId) {
+            // Find the post card
+            const postCard = document.querySelector(`.post-like[data-id="${postId}"]`).closest('.post-card');
+            const commentsContainer = postCard.querySelector('.comments-container');
+            
+            if (commentsContainer) {
+                const commentsList = commentsContainer.querySelector('.comments-list');
+                const noCommentsMsg = commentsContainer.querySelector('.no-comments');
+                
+                if (noCommentsMsg) {
+                    noCommentsMsg.remove();
+                }
+                
+                // Add new comment at the top
+                const commentElement = createCommentElement(comment);
+                if (commentsList.firstChild) {
+                    commentsList.insertBefore(commentElement, commentsList.firstChild);
+                } else {
+                    commentsList.appendChild(commentElement);
+                }
+            }
+        }
+
+        function createCommentElement(comment) {
+            const div = document.createElement('div');
+            div.className = 'comment-item';
+            
+            // Format date
+            const date = new Date(comment.date);
+            const formattedDate = date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            div.innerHTML = `
+                <div class="comment-header">
+                    <strong class="comment-author">${escapeHtml(comment.author)}</strong>
+                    <span class="comment-date">${formattedDate}</span>
+                </div>
+                <div class="comment-text">${escapeHtml(comment.text).replace(/\n/g, '<br>')}</div>
+            `;
+            
+            return div;
+        }
+
+        function toggleCommentsSection(button) {
+            const postId = button.getAttribute('data-post-id');
+            const postCard = button.closest('.post-card');
+            let commentsContainer = postCard.querySelector('.comments-container');
+            
+            if (!commentsContainer) {
+                // Create comments container if it doesn't exist
+                commentsContainer = document.createElement('div');
+                commentsContainer.className = 'comments-container';
+                commentsContainer.innerHTML = `
+                    <div class="comments-header">
+                        <h4>Comments</h4>
+                        <button class="close-comments">&times;</button>
+                    </div>
+                    <div class="comments-list"></div>
+                    <div class="comment-form">
+                        <textarea class="comment-input" placeholder="Add a comment..." rows="3"></textarea>
+                        <button class="btn btn-primary comment-submit" data-post-id="${postId}">Post Comment</button>
+                    </div>
+                `;
+                
+                // Insert after post actions
+                const postActions = postCard.querySelector('.post-actions');
+                postActions.parentNode.insertBefore(commentsContainer, postActions.nextSibling);
+                
+                // Load existing comments
+                loadCommentsIntoContainer(postId, commentsContainer);
+                
+                button.textContent = 'Hide Comments';
+            } else {
+                // Toggle visibility
+                if (commentsContainer.style.display === 'none') {
+                    commentsContainer.style.display = 'block';
+                    button.textContent = 'Hide Comments';
+                } else {
+                    commentsContainer.style.display = 'none';
+                    button.textContent = 'Show Comments';
+                }
+            }
+        }
+
+        function closeCommentsSection(closeButton) {
+            const commentsContainer = closeButton.closest('.comments-container');
+            const postCard = commentsContainer.closest('.post-card');
+            const toggleButton = postCard.querySelector('.toggle-comments');
+            
+            commentsContainer.remove();
+            toggleButton.textContent = 'Show Comments';
+        }
+
+        // ===== POST CREATION FUNCTIONS =====
+        function addPostToUI(post) {
+            // Determine which container to add to based on post type
             let targetContainer;
-            if (writingType === 'poem') {
+            if (post.type === 'poem') {
                 targetContainer = document.querySelector('#read-poems .posts-container');
-            } else if (writingType === 'story') {
+            } else if (post.type === 'story') {
                 targetContainer = document.querySelector('#read-stories .posts-container');
-            } else if (writingType === 'healing-journal') {
+            } else if (post.type === 'healing-journal') {
                 targetContainer = document.querySelector('#healing-journals .posts-container');
             } else {
                 targetContainer = document.querySelector('#read-stories .posts-container');
             }
             
-            // Format date
-            const now = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            const formattedDate = now.toLocaleDateString('en-US', options);
+            if (!targetContainer) return;
             
-            // Create post HTML
-            newPost.innerHTML = `
+            // Format date
+            const date = new Date(post.date);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = date.toLocaleDateString('en-US', options);
+            
+            // Check if current user has liked this post
+            const sessionId = getSessionId();
+            const isLiked = post.likedBy && post.likedBy.includes(sessionId);
+            
+            // Create post element
+            const postElement = document.createElement('div');
+            postElement.className = 'post-card fade-in';
+            postElement.innerHTML = `
                 <div class="post-header">
-                    <h3 class="post-title">${writingTitle}</h3>
-                    <div class="post-author">By ${authorName}</div>
+                    <h3 class="post-title">${escapeHtml(post.title)}</h3>
+                    <div class="post-author">By ${escapeHtml(post.author)}</div>
                     <div class="post-date">${formattedDate}</div>
                 </div>
-                <div class="post-body">${writingContent.replace(/\n/g, '<br>')}</div>
+                <div class="post-body">${post.content.replace(/\n/g, '<br>')}</div>
                 <div class="post-actions">
-                    <button class="post-like" data-id="new-${Date.now()}">
-                        <i class="far fa-heart"></i> <span class="like-count">0</span> Likes
+                    <button class="post-like ${isLiked ? 'liked' : ''}" data-id="${post.id}">
+                        <i class="${isLiked ? 'fas' : 'far'} fa-heart"></i> 
+                        <span class="like-count">${post.likes || 0}</span> Likes
+                    </button>
+                    <button class="btn-text toggle-comments" data-post-id="${post.id}">
+                        Show Comments
                     </button>
                 </div>
             `;
             
             // Add to beginning of container
-            targetContainer.prepend(newPost);
-            
-            // Reset form
-            writingForm.reset();
-            
-            // Show success message
-            submissionSuccess.classList.remove('hidden');
-            
-            // Auto-hide success message after 5 seconds
-            setTimeout(() => {
-                submissionSuccess.classList.add('hidden');
-            }, 5000);
-            
-            // Switch to appropriate tab to show new post
-            if (writingType === 'poem') {
-                document.querySelector('[data-tab="read-poems"]').click();
-            } else if (writingType === 'story') {
-                document.querySelector('[data-tab="read-stories"]').click();
-            } else if (writingType === 'healing-journal') {
-                document.querySelector('[data-tab="healing-journals"]').click();
-            }
-        });
-        
-        // ===== LIKE BUTTON FUNCTIONALITY =====
-        document.addEventListener('click', (e) => {
-            if (e.target.closest('.post-like')) {
-                const likeButton = e.target.closest('.post-like');
-                const likeIcon = likeButton.querySelector('i');
-                const likeCount = likeButton.querySelector('.like-count');
-                let count = parseInt(likeCount.textContent);
-                
-                // Toggle liked state
-                if (likeButton.classList.contains('liked')) {
-                    likeButton.classList.remove('liked');
-                    likeIcon.classList.remove('fas');
-                    likeIcon.classList.add('far');
-                    count--;
-                } else {
-                    likeButton.classList.add('liked');
-                    likeIcon.classList.remove('far');
-                    likeIcon.classList.add('fas');
-                    count++;
-                }
-                
-                likeCount.textContent = count;
-            }
-        });
-        
-        // ===== SMOOTH SCROLLING =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // ===== UPDATE ACTIVE NAV LINK ON SCROLL =====
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (scrollY >= (sectionTop - 100)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // ===== NAVBAR SCROLL EFFECT =====
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.padding = '10px 0';
-                navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                navbar.style.padding = '15px 0';
-                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            }
-        });
-        
-        // ===== BIOGRAPHY SECTION ANIMATIONS =====
-        function animateOnScroll() {
-            const bioCards = document.querySelectorAll('.bio-card');
-            const statItems = document.querySelectorAll('.stat-item');
-            
-            bioCards.forEach(card => {
-                const cardPosition = card.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (cardPosition < screenPosition) {
-                    card.classList.add('animate');
-                }
-            });
-            
-            statItems.forEach(item => {
-                const itemPosition = item.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (itemPosition < screenPosition) {
-                    item.classList.add('animate');
-                }
-            });
+            targetContainer.prepend(postElement);
         }
-        
-        // Initial check
-        window.addEventListener('load', animateOnScroll);
-        window.addEventListener('scroll', animateOnScroll);
-        
-        // ===== HERO BUTTON ANIMATIONS =====
-        const heroButtons = document.querySelectorAll('.hero .btn');
-        heroButtons.forEach(button => {
-            button.addEventListener('mouseenter', () => {
-                button.style.animation = 'pulse 0.5s ease';
-            });
-            
-            button.addEventListener('mouseleave', () => {
-                setTimeout(() => {
-                    button.style.animation = '';
-                }, 500);
-            });
-        });
+
+        // ===== HELPER FUNCTIONS =====
+        function getSessionId() {
+            // Create a unique session ID for this browser/user
+            let sessionId = localStorage.getItem('userSessionId');
+            if (!sessionId) {
+                sessionId = 'user-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('userSessionId', sessionId);
+            }
+            return sessionId;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
     </script>
 </body>
 </html>
